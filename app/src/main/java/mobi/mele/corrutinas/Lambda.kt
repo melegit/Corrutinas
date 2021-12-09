@@ -1,5 +1,8 @@
 package mobi.mele.corrutinas
 
+import kotlin.concurrent.thread
+import kotlin.random.Random
+
 fun main(){
 lambda()
 }
