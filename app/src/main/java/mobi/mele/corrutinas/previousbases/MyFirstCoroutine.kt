@@ -17,7 +17,7 @@ fun main(){
 
 fun coroutinesVsThreads() {
     print("Corrutinas Vs Threads")
-    
+
     //Coroutines
     //Coroutines are more efficient and do not block the program
     runBlocking {
