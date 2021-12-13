@@ -16,8 +16,8 @@ fun main(){
     dispatchers()
 }
 
-// definen donde queremos ejecutar los hilos de las corrutinas
-// cada uno de ellos está especializado en optimizar recursos para ciertas tareas
+// define the contexts where we want to execute the coroutines
+// each of them is specialized in optimizing resources for certain tasks
 fun dispatchers() {
     runBlocking {
         println("Dispatchers")
@@ -27,41 +27,42 @@ fun dispatchers() {
             endMsg()
         }
 
-        // para conexiones de base de datos, locarles o remotas, escritura y lectura de archivos, o tareas de larga duración
+        // for local or remote database connections, file reading and writing, or long-running tasks
         launch(Dispatchers.IO) {
             startMsg()
             println("IO")
             endMsg()
         }
 
-        // para procesos que no requieren compartir datos con otras corrutinas
+        // for processes that do not require data sharing with other coroutines
         launch(Dispatchers.Unconfined) {
             startMsg()
             println("Unconfined")
             endMsg()
         }
 
-        // solo para android, para tareas muy rápidas o que están relacionadas con la interfaz de usuario
+        // only for android, for very fast tasks or that are related to the user interface
         launch(Dispatchers.Main) {
             startMsg()
             println("Main")
             endMsg()
         }
 
-        // para tareas con uso intensivo de la CPU, procesar imagen, calculos complejos...
+        // for CPU intensive tasks, image processing, complex calculations ...
         launch(Dispatchers.Default) {
             startMsg()
             println("Default")
             endMsg()
         }
 
-        // Corrutina personalizada
+        // Custom context for coroutine
         launch(newSingleThreadContext("myCoroutine")) {
             startMsg()
             println("My coroutine personalized with a dispatcher")
             endMsg()
         }
 
+        // Custom context for coroutine
         newSingleThreadContext("myCoroutineAnotherWay").use {
             launch (it){
                 startMsg()
