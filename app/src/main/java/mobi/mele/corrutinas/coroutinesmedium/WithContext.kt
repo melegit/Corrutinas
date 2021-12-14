@@ -16,6 +16,7 @@ fun main(){
 }
 
 // with withContext we do not change or create new coroutines, we only change the context where the current coroutine or code is executing
+// To change the context, and execute a thread in a different thread than the parent, without changing the coroutine.
 fun changeWithContext() {
     runBlocking {
         println("withContext")
