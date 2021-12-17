@@ -18,12 +18,13 @@ fun main(){
 // if the coroutine is canceled, the contained flow is canceled
 fun cancelFlow() {
     runBlocking {
-        println("Cancelled Flow")
+        println("--------Cancelled Flow-----------")
         val job = launch {
             getDataByFlow().collect { println(it) }
         }
         delay(someTime()*2)
         // the flow is canceled before finishing completely
         job.cancel()
+        println("flow is Cancelled?: ${job.isCancelled}")
     }
 }

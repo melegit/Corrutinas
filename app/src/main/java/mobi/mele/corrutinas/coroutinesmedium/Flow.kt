@@ -34,7 +34,7 @@ fun basicFlow() {
     }
 }
 
-// llegó para resolver aquellos casos de código asyncrono que devuelve múltiples valores
+// Flow llegó para resolver aquellos casos de código asyncrono que devuelve múltiples valores
 fun getDataByFlow() : Flow<Float> {
     return flow {
         (1..5).forEach {
